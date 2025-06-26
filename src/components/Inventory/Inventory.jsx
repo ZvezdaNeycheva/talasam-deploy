@@ -97,7 +97,7 @@ export const Inventory = ({ title, inventory, onTrade, tradeAction, prices }) =>
                     </>
                   ) : tradeAction!=="no"?
                   <span className="unsellable-note">(Not sellable)</span>:
-                  null
+                   <span> x{inventory.bag[item].quantity}</span>
                   }
                 </>
 
