@@ -22,17 +22,17 @@ export const bookData = {
         {
           text: "Ако имаш стоножка в бурканче, мини на 113. ",
           nextPage: 113,
-          requiresItem: { item: "centipede", quantity: 1 },
+          requireItem: { item: "centipede", quantity: 1 },
         },
         {
           text: "Ако имаш лула на мира, продължи на 159. ",
           nextPage: 159,
-          requiresItem: { item: "pipe", quantity: 1 },
+          requireItem: { item: "pipe", quantity: 1 },
         },
         {
           text: "Ако имаш царевица, прехвърли се на 192. ",
           nextPage: 192,
-          requiresItem: { item: "corn", quantity: 1 },
+          requireItem: { item: "corn", quantity: 1 },
         },
         {
           text: "Ако нямаш нищо от изброеното, попадаш на 203. ",
@@ -71,7 +71,7 @@ export const bookData = {
       choices: [
         {
           text: "Ако имаш царевица и се съгласиш да я дадеш на Хухавел, мини на 23. ",
-          requiresItem: { item: "corn", quantity: 1 },
+          requireItem: { item: "corn", quantity: 1 },
           removeFromInventory: { item: "corn", quantity: 1 },
           nextPage: 23,
         },
@@ -131,6 +131,7 @@ export const bookData = {
       choices: [
         {
           text: "Ако се съгласиш да потърсите гъби, мини на 24. ",
+          addToInventory: [{ item: "mushrooms", quantity: 1 }],
           nextPage: 24,
         },
         {
@@ -162,13 +163,13 @@ export const bookData = {
         {
           text: "Ако имаш чифт вехти панталони и искаш да ги дадеш на Мишемориус, мини на 34. ",
           nextPage: 34,
-          requiresItem: "oldTrousers",
+          requireItem: { item: "oldTrousers", quantity: 1 },
           removeFromInventory: { item: "oldTrousers", quantity: 1 },
         },
         {
           text: "Ако имаш шишенце с универсален разтворител и го използваш, за да отлепиш панталоните му от стола, продължи на 48. ",
           nextPage: 48,
-          requiresItem: "bottleOfSolvent",
+          requireItem: { item: "bottleOfSolvent", quantity: 1 },
           removeFromInventory: { item: "bottleOfSolvent", quantity: 1 },
         },
         {
@@ -197,19 +198,19 @@ export const bookData = {
         {
           text: "Един — мини по свой избор на 217, 227 или 242.",
           nextPage: [217, 227, 242],
-          requiresItem: { item: "corn", quantity: 1 },
+          requireItem: { item: "corn", quantity: 1 },
           removeFromInventory: { item: "corn", quantity: 1 },
         },
         {
           text: "Два — продължи на 206 или 259.",
           nextPage: [206, 259],
-          requiresItem: { item: "corn", quantity: 2 },
+          requireItem: { item: "corn", quantity: 2 },
           removeFromInventory: { item: "corn", quantity: 2 },
         },
         {
           text: "Три — прехвърли се на 250.",
           nextPage: 250,
-          requiresItem: { item: "corn", quantity: 3 },
+          requireItem: { item: "corn", quantity: 3 },
           removeFromInventory: { item: "corn", quantity: 3 },
         },
       ],
@@ -248,13 +249,13 @@ export const bookData = {
         {
           text: "Ако имаш домат, мини на 78.",
           nextPage: 78,
-          requiresItem: { item: "tomato", quantity: 1 },
+          requireItem: { item: "tomato", quantity: 1 },
           removeFromInventory: { item: "tomato", quantity: 1 },
         },
         {
           text: "Ако имаш диня, продължи на 126.",
           nextPage: 126,
-          requiresItem: { item: "watermelon", quantity: 1 },
+          requireItem: { item: "watermelon", quantity: 1 },
           removeFromInventory: { item: "watermelon", quantity: 1 },
         },
         {
@@ -318,10 +319,10 @@ export const bookData = {
       ],
     },
     21: {
-      text: `Когато се свестяваш, лежиш в тясна килия, а около теб седят унило четиримата чукундурти.`,
+      text: `Когато се свестяваш, лежиш в тясна килия, а около теб седят унило четиримата чукундурти. Попадал ли си вече в затвора?`,
       choices: [
         {
-          text: "Попадал ли си вече в затвора?",
+          text: "Да — продължи на 285.",
           nextPage: 285,
           requiresCondition: "jailed",
         },
@@ -397,7 +398,7 @@ export const bookData = {
         {
           text: "Да — мини на 63. ",
           nextPage: 63,
-          requiresItem: { item: "book", quantity: 1 },
+          requireItem: { item: "book", quantity: 1 },
         },
         { text: "Не — продължи на 98. ", nextPage: 98 },
       ],
@@ -409,7 +410,7 @@ export const bookData = {
       choices: [
         {
           text: "Напълваш съдинката си с вода и преминаваш на 177. ",
-          addToInventory: [{ item: "water", quantity: 1 }],
+          addToInventory: [{ item: "bottleOfWater", quantity: 1 }],
           nextPage: 177,
         },
       ],
@@ -426,6 +427,7 @@ export const bookData = {
       choices: [
         {
           text: " Отбележи си, че си настинал и премини на 155.  ",
+          changeCondition: { sick: true, healthy: false },
           nextPage: 155,
         },
       ],
@@ -588,7 +590,7 @@ export const bookData = {
       choices: [
         {
           text: "Ако имаш лула на мира, мини на 86. ",
-          requiresItem: "pipe",
+          requireItem: { item: "pipe", quantity: 1 },
           nextPage: 86,
         },
         {
@@ -688,7 +690,7 @@ export const bookData = {
           text: `
           Да — мини на 37.  
           `,
-          requiresItem: { item: "pipe", quantity: 1 },
+          requireItem: { item: "pipe", quantity: 1 },
           nextPage: 37,
         },
         {
@@ -795,7 +797,7 @@ export const bookData = {
           text: `
           Ако имаш лула на мира и се съгласиш да я дадеш на Хухавел, мини на 76. 
           `,
-          requiresItem: { item: "pipe", quantity: 1 },
+          requireItem: { item: "pipe", quantity: 1 },
           nextPage: 76,
         },
         {
@@ -815,7 +817,7 @@ export const bookData = {
           text: `
           Да — мини на 220. 
           `,
-          requiresItem: { item: "book", quantity: 1 },
+          requireItem: { item: "book", quantity: 1 },
           nextPage: 220,
         },
         {
@@ -1092,7 +1094,7 @@ export const bookData = {
         {
           text: `
           За целта премини на 83. `,
-          requiresItem: { item: "book", quantity: 1 },
+          requireItem: { item: "book", quantity: 1 },
           nextPage: 83,
         },
         {
@@ -1206,6 +1208,7 @@ export const bookData = {
       choices: [
         {
           text: "177",
+          addToInventory: [{ item: "bottleOfWater", quantity: 1 }],
           nextPage: 177,
         },
       ],
@@ -1453,7 +1456,7 @@ export const bookData = {
 — Кой ще носи торбата?
   `,
       addToInventory: [
-        { item: "bag", quantity: 1 },
+        // { item: "bottleEmpty", quantity: 1 }, //remove it when NaN is taken care of
         { item: "duck", quantity: 1 },
         { item: "corn", quantity: 3 },
         { item: "watermelon", quantity: 1 },
@@ -1679,7 +1682,7 @@ export const bookData = {
           Да — мини на 116.  
           `,
           nextPage: 116,
-          visitedPages: 116,
+          //visitedPages: 116,
         },
         {
           text: `
@@ -1773,7 +1776,7 @@ export const bookData = {
       — Дано, дано — промърморва старчето, после се обръща към теб. — Хайде, ела да правим търговия като хората. И вече без номера, че ако се ядосам лошо ще стане. 
       — Слушай, шефе, нека аз да опитам — прошепва ти Гадолини. — Голям съм търговец, значи! Да видиш само каква далавера ще извъртя! 
         `,
-      addToInventory: [{ item: "macaron", quantity: 1 }],
+      addToInventory: [{ item: "makaron", quantity: 1 }],
       choices: [
         {
           text: `
@@ -1886,7 +1889,7 @@ export const bookData = {
           text: `
           Експеримент с патката — мини на 123. 
           `,
-          requiresItem: { item: "duck", quantity: 1 },
+          requireItem: { item: "duck", quantity: 1 },
           nextPage: 123,
         },
         {
@@ -1945,6 +1948,7 @@ export const bookData = {
           text: `
           Напълваш съдинката си с вода и преминаваш на 177. 
           `,
+          addToInventory: [{ item: "bottleOfWater", quantity: 1 }],
           nextPage: 177,
         },
       ],
@@ -2268,13 +2272,13 @@ export const bookData = {
           text: `
           Да — продължи на 152.  
           `,
-          nextPage: 152,
+          nextPage: 152, visitedPages: 174 
         },
         {
           text: `
           Не — прехвърли се на 174. 
           `,
-          nextPage: 174,
+          nextPage: 174, 
         },
       ],
     },
@@ -2286,7 +2290,7 @@ export const bookData = {
       — Вярно бе! Брей, имало умни хора… пардон, умни чукундурти на тоя свят. Да сте живи и здрави, скъпи приятели. Хайде, вървете си със здраве. Срамота ще е да ви ям след такава услуга. 
       Отбележи си, че лулата остава при змея. А след това повеждаш своята дружина… накъде впрочем? 
             `,
-      removeFromInventory: { item: "pipe", quantity: 1 },
+      removeFromInventory: [{ item: "pipe", quantity: 1 }],
       choices: [
         {
           text: `
@@ -2519,7 +2523,7 @@ export const bookData = {
       Забелязваш в ъгъла да се търкаля празна кратунка. Ако искаш, можеш да я вземеш, чародеят няма да има нищо против. 
       Имаш ли вълшебни гъби? 
       `,
-      addToInventory: { item: "groud", quantity: 1 },
+      addToInventory: [{ item: "gourd", quantity: 1 }],
       choices: [
         {
           text: `
@@ -2616,28 +2620,28 @@ export const bookData = {
           text: `
           Права джаджа — мини на 170.
           `,
-          requiresItems: [{ item: "straigthTrinket", quantity: 1 }],
+          requireItem: { item: "straightTrinket", quantity: 1 },
           nextPage: 170,
         },
         {
           text: `
           Усукана джаджа — продължи на 265.
           `,
-          requiresItems: [{ item: "twistedTrinket", quantity: 1 }],
+          requireItem: { item: "twistedTrinket", quantity: 1 },
           nextPage: 265,
         },
         {
           text: `
           Крив макарон — прехвърли се на 278.
           `,
-          requiresItems: [{ item: "macaron", quantity: 1 }],
+          requireItem: { item: "makaron", quantity: 1 },
           nextPage: 278,
         },
         {
           text: `
           Преносима дупка — попадаш на 286.
           `,
-          requiresItems: [{ item: "hole", quantity: 1 }],
+          requireItem: { item: "hole", quantity: 1 },
           nextPage: 286,
         },
         {
@@ -2699,13 +2703,13 @@ export const bookData = {
       — Част от машината за производство на суха вода — обяснява Мишемориус. — Друго нямам. Вземи я, все ще ти свърши работа. 
       Ако искаш да приемеш подаръка, запиши си, че вече имаш права джаджа. А имаш ли и усукана джаджа? 
       `,
-      addToInventory: { item: "straigthTrinket", quantity: 1 },
+      addToInventory: [{ item: "straightTrinket", quantity: 1 }],
       choices: [
         {
           text: `
           Да — мини на 191.
           `,
-          requiresItems: [{ item: "twistedTrinket", quantity: 1 }],
+          requireItem: { item: "twistedTrinket", quantity: 1 },
           nextPage: 191,
         },
         {
@@ -2948,6 +2952,7 @@ export const bookData = {
           text: `
           Напълваш съдинката си с вода и преминаваш на 177. 
           `,
+          addToInventory: [{ item: "bottleOfWater", quantity: 1 }],
           nextPage: 177,
         },
       ],
@@ -3142,13 +3147,13 @@ export const bookData = {
           text: `
       Да — мини на 169.
       `,
-          nextPage: 169,
+          nextPage: 169, visitedPages: 96,
         },
         {
           text: `
       Не — продължи на 190.
       `,
-          nextPage: 190,
+          nextPage: 190, visitedPages: 114,
         },
       ],
     },
@@ -3180,17 +3185,16 @@ export const bookData = {
           text: `
       Ако имаш кратунка и искаш да си налееш вода — мини на 194.
       `,
-          requiresItem: [{ item: "groud", quantity: 1 }],
-          removeFromInventory: { item: "groud", quantity: 1 },
+          requireItem: { item: "gourd", quantity: 1 }, 
+          removeFromInventory: { item: "gourd", quantity: 1 }, // a ako все пак не налея вода?
           nextPage: 194,
         },
         {
           text: `
       Ако нямаш кратунка, но имаш шишенце с универсален разтворител, може да пожертваш съдържанието и да си налееш чиста вода — мини на 194.
       `,
-          requiresItem: [{ item: "bottleOfSolvent", quantity: 1 }],
+          requireItem: { item: "bottleOfSolvent", quantity: 1 },
           removeFromInventory: { item: "bottleOfSolvent", quantity: 1 },
-          addToInventory: { item: "bottleOfWater", quantity: 1 },
           nextPage: 194,
         },
         ,
@@ -3198,9 +3202,8 @@ export const bookData = {
           text: `
       Ако нямаш кратунка, но имаш шишенце със суха вода, може да пожертваш съдържанието и да си налееш чиста вода — мини на 194.
       `,
-          requiresItem: [{ item: "dryWater", quantity: 1 }],
+          requireItem: { item: "dryWater", quantity: 1 },
           removeFromInventory: { item: "dryWater", quantity: 1 },
-          addToInventory: { item: "bottleOfWater", quantity: 1 },
           nextPage: 194,
         },
         {
@@ -3216,7 +3219,16 @@ export const bookData = {
   — Е, хайде, старче, остани си със здраве — казваш ти и се обръщаш към спътниците си. — Дружина, ходом марш към кръстопътя!
   Чукундуртите послушно поемат през клисурата. (Ако Фърчилан е избягал, след малко ще го откриете да се спотайва между камънаците с плячката си — кривия макарон.)
   `,
-      choices: [
+  choices: [
+    // I have added in page 94 addToInventory: [{ item: "makaron", quantity: 1 }], but endless loop and endless makarons
+        // visitedPage: 94 // if Фърчилан was choosen at page 174 then add: 
+        // addToInventory: [{ item: "makaron", quantity: 1 }],
+      //   {
+      //     text: `
+      // Мини на 187.m
+      // `,
+      //     nextPage: 187, visitedPages: 94, addToInventory: [{ item: "makaron", quantity: 1 }],
+      //   },
         {
           text: `
       Мини на 187.
@@ -3464,7 +3476,7 @@ export const bookData = {
           text: `
       Да — продължи на 33. 
       `,
-          nextPage: 33,
+          nextPage: 33, //visitedPages: 75
         },
         {
           text: `
@@ -3591,7 +3603,7 @@ export const bookData = {
 — Вярно бе! Брей, имало умни хора… пардон, умни чукундурти на тоя свят. Да сте живи и здрави, скъпи приятели. Хайде, вървете си със здраве. Срамота ще е да ви ям след такава услуга.
 Отбележи си, че лулата остава при змея. А след това повеждаш своята дружина… накъде впрочем?
   `,
-      removeFromInventory: { item: "pipe", quantity: 1 },
+      removeFromInventory: [{ item: "pipe", quantity: 1 }], 
       choices: [
         {
           text: `
@@ -3760,7 +3772,7 @@ export const bookData = {
           text: `
       Имаш ли билка-кандилка? Ако да, мини на 264.
       `,
-          requiresItem: { item: "herb", quantity: 1 },
+          requireItem: { item: "herb", quantity: 1 },
           removeFromInventory: { item: "herb", quantity: 1 },
           nextPage: 264,
         },
@@ -3781,13 +3793,13 @@ export const bookData = {
 — Част от машината за производство на суха вода — обяснява Мишемориус. — Друго нямам. Вземи я, все ще ти свърши работа.
 Ако искаш да приемеш подаръка, запиши си, че вече имаш права джаджа. А имаш ли и усукана джаджа?
   `,
-      addToInventory: { item: "straightTrinket", quantity: 1 },
+      addToInventory: [{ item: "straightTrinket", quantity: 1 }],
       choices: [
         {
           text: `
       Ако да, мини на 216.
       `,
-          requiresItem: { item: "twistedTrinket", quantity: 1 },
+          requireItem: { item: "twistedTrinket", quantity: 1 },
           nextPage: 216,
         },
         {
@@ -3834,7 +3846,8 @@ export const bookData = {
 Е, това е положението. Запиши си наличните провизии и след това премини на 197.
   `,
       addToInventory: [
-        { item: "bag", quantity: 1 },
+        // { item: "bottleEmpty", quantity: 1 }, //remove it when NaN is taken care of
+        // { item: "bottleOfWater", quantity: 1 },
         { item: "duck", quantity: 1 },
         { item: "corn", quantity: 3 },
         { item: "watermelon", quantity: 1 },
@@ -3849,6 +3862,15 @@ export const bookData = {
           text: `
       Запиши си наличните провизии и след това премини на 197.
       `,
+      // addToInventory: [
+      //   { item: "duck", quantity: 1 },
+      //   { item: "corn", quantity: 3 },
+      //   { item: "watermelon", quantity: 1 },
+      //   { item: "tomato", quantity: 2 },
+      //   { item: "beetroot", quantity: 1 },
+      //   { item: "pipe", quantity: 1 },
+      //   { item: "soap", quantity: 1 },
+      // ],
           nextPage: 197,
         },
       ],
@@ -3931,7 +3953,7 @@ export const bookData = {
 — Уф! — ядосва се Фърчилан. — Толкова време изгубихме заради една тревичка.
 — Ама това е полезна билка! — защитава се Хухавел. — Викат й билка-кандилка. Ако я сложиш на някого във виното, или в ракията да речем, моментално пада кьоркютук пиян.
   `,
-      addToInventory: { item: "herb", quantity: 1 },
+      addToInventory: [{ item: "herb", quantity: 1 }],
       choices: [
         {
           text: `
@@ -4035,7 +4057,7 @@ export const bookData = {
           text: `
       Мини на 219.
       `,
-          nextPage: 219,
+          nextPage: 219, removeFromInventory: { item: "corn", quantity: 1 },
         },
       ],
     },
@@ -4362,7 +4384,7 @@ export const bookData = {
           text: `
       Запасяваш се с вода и преминаваш на 177.
       `,
-          addToInventory: { item: "water", quantity: 1 },
+          addToInventory: [{ item: "bottleOfWater", quantity: 1 }],
           nextPage: 177,
         },
       ],
@@ -4709,14 +4731,14 @@ export const bookData = {
           text: `
       Ако искаш преди това да хвърлиш в чорбата сапун (стига да го имаш), продължи на 266.
       `,
-          requiresItem: { item: "soap", quantity: 1 },
+          requireItem: { item: "soap", quantity: 1 },
           nextPage: 266,
         },
         {
           text: `
       Ако имаш черна гъба и я пуснеш в казана, прехвърли се на 274.
       `,
-          requiresItem: { item: "mushroomBlack", quantity: 1 },
+          requireItem: { item: "mushrooms", quantity: 1 },
           nextPage: 274,
         },
       ],
@@ -4790,14 +4812,14 @@ export const bookData = {
           text: `
       Ако имаш чифт вехти панталони, мини на 34.
       `,
-          requiresItem: { item: "oldTrousers", quantity: 1 },
+          requireItem: { item: "oldTrousers", quantity: 1 },
           nextPage: 34,
         },
         {
           text: `
       Ако имаш шишенце с универсален разтворител, попадаш на 48.
       `,
-          requiresItem: { item: "bottleOfSolvent", quantity: 1 },
+          requireItem: { item: "bottleOfSolvent", quantity: 1 },
           nextPage: 48,
         },
         {
@@ -4831,13 +4853,13 @@ export const bookData = {
           text: `
       Да — мини на 252.
       `,
-          nextPage: 252,
+          nextPage: 252, visitedPages:  204
         },
         {
           text: `
       Не — продължи на 204.
       `,
-          nextPage: 204,
+          nextPage: 204, // visitedPages:  239,
         },
       ],
     },
@@ -4885,63 +4907,63 @@ export const bookData = {
           text: `
       Шишенце суха вода — мини на 9.
       `,
-          requiresItem: { item: "dryWater", quantity: 1 },
+          requireItem: { item: "dryWater", quantity: 1 },
           nextPage: 9,
         },
         {
           text: `
       Огледалце — продължи на 25.
       `,
-          requiresItem: { item: "mirror", quantity: 1 },
+          requireItem: { item: "mirror", quantity: 1 },
           nextPage: 25,
         },
         {
           text: `
       Крив макарон — прехвърли се на 64.
       `,
-          requiresItem: { item: "macaron", quantity: 1 },
+          requireItem: { item: "makaron", quantity: 1 },
           nextPage: 64,
         },
         {
           text: `
       Кочан царевица — попадаш на 100.
       `,
-          requiresItem: { item: "corn", quantity: 1 },
+          requireItem: { item: "corn", quantity: 1 },
           nextPage: 100,
         },
         {
           text: `
       Калъп сапун — отгърни на 145.
       `,
-          requiresItem: { item: "soap", quantity: 1 },
+          requireItem: { item: "soap", quantity: 1 },
           nextPage: 145,
         },
         {
           text: `
       Книжка „Вълшебните гъби по нашите земи“ — премини на 163.
       `,
-          requiresItem: { item: "book", quantity: 1 },
+          requireItem: { item: "book", quantity: 1 },
           nextPage: 163,
         },
         {
           text: `
       Стоножка в бурканче — продължи на 186.
       `,
-          requiresItem: { item: "centipede", quantity: 1 },
+          requireItem: { item: "centipede", quantity: 1 },
           nextPage: 186,
         },
         {
           text: `
       Чифт вехти панталони — отгърни на 199.
       `,
-          requiresItem: { item: "oldTrousers", quantity: 1 },
+          requireItem: { item: "oldTrousers", quantity: 1 },
           nextPage: 199,
         },
         {
           text: `
       Усукана джаджа  — попадаш на 215.
       `,
-          requiresItem: { item: "twistedTrinket", quantity: 1 },
+          requireItem: { item: "twistedTrinket", quantity: 1 },
           nextPage: 215,
         },
         ,
@@ -4949,7 +4971,7 @@ export const bookData = {
           text: `
       Права джаджа  — попадаш на 215.
       `,
-          requiresItem: { item: "straightTrinket", quantity: 1 },
+          requireItem: { item: "straightTrinket", quantity: 1 },
           nextPage: 215,
         },
         {
@@ -5071,8 +5093,9 @@ export const bookData = {
           text: `
       Ако имаш диня и я пожертваш, за да си изработиш манерка, продължи на 18.
       `,
-          requiresItem: { item: "watermelon", quantity: 1 },
+          requireItem: { item: "watermelon", quantity: 1 },
           removeFromInventory: { item: "watermelon", quantity: 1 },
+          addToInventory: [{ item: "bottleOfWater", quantity: 1 }],
           nextPage: 18,
         },
         {
@@ -5213,7 +5236,7 @@ export const bookData = {
           text: `
       Права джаджа — мини на 170. 
       `,
-          requiresItem: { item: "straightTrinket", quantity: 1 },
+          requireItem: { item: "straightTrinket", quantity: 1 },
           removeFromInventory: { item: "straightTrinket", quantity: 1 },
           nextPage: 170,
         },
@@ -5221,7 +5244,7 @@ export const bookData = {
           text: `
       Усукана джаджа — продължи на 265. 
       `,
-          requiresItem: { item: "twistedTrinket", quantity: 1 },
+          requireItem: { item: "twistedTrinket", quantity: 1 },
           removeFromInventory: { item: "twistedTrinket", quantity: 1 },
           nextPage: 265,
         },
@@ -5229,15 +5252,15 @@ export const bookData = {
           text: `
       Крив макарон — прехвърли се на 278. 
       `,
-          requiresItem: { item: "macaron", quantity: 1 },
-          removeFromInventory: { item: "macaron", quantity: 1 },
+          requireItem: { item: "makaron", quantity: 1 },
+          removeFromInventory: { item: "makaron", quantity: 1 },
           nextPage: 278,
         },
         {
           text: `
       Преносима дупка — попадаш на 286. 
       `,
-          requiresItem: { item: "hole", quantity: 1 },
+          requireItem: { item: "hole", quantity: 1 },
           removeFromInventory: { item: "hole", quantity: 1 },
           nextPage: 118,
         },
@@ -5261,7 +5284,7 @@ export const bookData = {
           text: `
       Ако имаш царевица, мини на 13.
       `,
-          requiresItem: { item: "corn", quantity: 1 },
+          requireItem: { item: "corn", quantity: 1 },
           removeFromInventory: { item: "corn", quantity: 1 },
           nextPage: 13,
         },
@@ -5269,7 +5292,7 @@ export const bookData = {
           text: `
       Ако имаш сапун, продължи на 38.
       `,
-          requiresItem: { item: "soap", quantity: 1 },
+          requireItem: { item: "soap", quantity: 1 },
           removeFromInventory: { item: "soap", quantity: 1 },
           nextPage: 38,
         },
@@ -5420,7 +5443,7 @@ export const bookData = {
           text: `
       Да — мини на 153.
       `,
-          requiresItem: { item: "duck", quantity: 1 },
+          requireItem: { item: "duck", quantity: 1 },
           nextPage: 153,
         },
         {
@@ -5459,7 +5482,7 @@ export const bookData = {
           text: `
       Продължи на 237.
       `,
-          addToInventory: { item: "groud", quantity: 1 },
+          addToInventory: [{ item: "gourd", quantity: 1 }],
           nextPage: 237,
         },
       ],
@@ -5501,35 +5524,35 @@ export const bookData = {
           text: `
       Крив макарон — продължи на 276.
       `,
-          requiresItem: { item: "macaron", quantity: 1 },
+          requireItem: { item: "makaron", quantity: 1 },
           nextPage: 276,
         },
         {
           text: `
       Огледалце — прехвърли се на 282.
       `,
-          requiresItem: { item: "mirror", quantity: 1 },
+          requireItem: { item: "mirror", quantity: 1 },
           nextPage: 282,
         },
         {
           text: `
       Стоножка в бурканче — попадаш на 288.
       `,
-          requiresItem: { item: "centipede", quantity: 1 },
+          requireItem: { item: "centipede", quantity: 1 },
           nextPage: 288,
         },
         {
           text: `
       Усукана джаджа — отгърни на 290.
       `,
-          requiresItem: { item: "twistedTrinket", quantity: 1 },
+          requireItem: { item: "twistedTrinket", quantity: 1 },
           nextPage: 290,
         },
         {
           text: `
       Права джаджа — премини на 196.
       `,
-          requiresItem: { item: "straightTrinket", quantity: 1 },
+          requireItem: { item: "straightTrinket", quantity: 1 },
           nextPage: 196,
         },
         {
@@ -5587,7 +5610,7 @@ export const bookData = {
           text: `
       Ако имаш лула на мира, мини на 221.
       `,
-          requiresItem: { item: "pipe", quantity: 1 },
+          requireItem: { item: "pipe", quantity: 1 },
           nextPage: 221,
         },
         {
@@ -5961,7 +5984,7 @@ export const bookData = {
       text: `
 Протягаш до болка ръка… и наистина успяваш да закачиш ключовете. Но щом опитваш да ги смъкнеш от куката, крехкият макарон се строшава. 
   `,
-      removeFromInventory: { item: "macaron", quantity: 1 },
+      removeFromInventory: { item: "makaron", quantity: 1 },
       choices: [
         {
           text: `
@@ -5983,7 +6006,7 @@ export const bookData = {
           text: `
       Ако имаш лула на мира, мини на 221.
       `,
-          requiresItem: { item: "pipe", quantity: 1 },
+          requireItem: { item: "pipe", quantity: 1 },
           nextPage: 221,
         },
         {
@@ -6048,42 +6071,42 @@ export const bookData = {
           text: `
       Чукундур (цвекло) — мини на 289.
       `,
-          requiresItem: { item: "beetroot", quantity: 1 },
+          requireItem: { item: "beetroot", quantity: 1 },
           nextPage: 289,
         },
         {
           text: `
       Съдинка с вода — продължи на 280.
       `,
-          requiresItem: { item: "water", quantity: 1 },
+          requireItem: { item: "bottleOfWater", quantity: 1 },
           nextPage: 280,
         },
         {
           text: `
       Усукана джаджа — прехвърли се на 290.
       `,
-          requiresItem: { item: "twistedTrinket", quantity: 1 },
+          requireItem: { item: "twistedTrinket", quantity: 1 },
           nextPage: 290,
         },
         {
           text: `
       Права джаджа — попадаш на 196.
       `,
-          requiresItem: { item: "straightTrinket", quantity: 1 },
+          requireItem: { item: "straightTrinket", quantity: 1 },
           nextPage: 196,
         },
         {
           text: `
       Диня — отгърни на 6.
       `,
-          requiresItem: { item: "watermelon", quantity: 1 },
+          requireItem: { item: "watermelon", quantity: 1 },
           nextPage: 6,
         },
         {
           text: `
       Преносима дупка — премини на 92.
       `,
-          requiresItem: { item: "hole", quantity: 1 },
+          requireItem: { item: "hole", quantity: 1 },
           nextPage: 92,
         },
         {
